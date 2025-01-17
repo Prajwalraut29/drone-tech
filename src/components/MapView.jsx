@@ -4,6 +4,33 @@ import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+// Define custom icon
+const customIcon = L.divIcon({
+    className: 'custom-marker',
+    html: `
+    <div style="
+      width: 24px;
+      height: 24px;
+      background-color: #3b82f6;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ">
+      <div style="
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border-radius: 50%;
+      "></div>
+    </div>
+  `,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
+});
+
 const MapView = () => {
     const { dronePath, isPaused } = useSelector((state) => state.drone);
     const [currentPosition, setCurrentPosition] = useState([18.5204, 73.8567]); // Default to Pune
@@ -81,8 +108,16 @@ const MapView = () => {
                 />
                 {pathProgress.length > 0 && (
                     <>
-                        <Polyline positions={pathProgress} color="blue" weight={4} />
-                        <Marker position={currentPosition}></Marker>
+                        <Polyline
+                            positions={pathProgress}
+                            color="#3b82f6"
+                            weight={4}
+                            opacity={0.8}
+                        />
+                        <Marker
+                            position={currentPosition}
+                            icon={customIcon}
+                        />
                     </>
                 )}
             </MapContainer>

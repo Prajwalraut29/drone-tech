@@ -35,14 +35,9 @@ cd drone-path-simulation
 npm install
 ```
 
-3. For Google Maps, create a `.env` file in the root directory and add your Google Maps API key:
-```
-REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
-```
-
 4. Start the development server:
 ```bash
-npm start
+npm run dev
 ```
 
 ## Required Dependencies
@@ -50,7 +45,6 @@ npm start
 ```json
 {
   "dependencies": {
-    "@react-google-maps/api": "^2.20.5",
     "@reduxjs/toolkit": "^2.5.0",
     "leaflet": "^1.9.4",
     "react": "^18.3.1",
@@ -72,14 +66,14 @@ npm start
      - Enter latitude, longitude, and timestamp in the provided form
      - Click "Add Point" to include it in the path
    - File Upload:
-     - Click "Upload File" to select a CSV or JSON file
+     - Click "Upload File" to select a JSON file
      - File format should follow the template provided below
 
 3. **Simulation Controls**
    - Click "Simulate" to start the drone path animation
    - Use Play/Pause button to control simulation
    - Drag the seek bar to jump to specific points in time
-   - Reset button returns drone to starting position
+   - Reset button remove the whole data
 
 ## State Management
 
@@ -101,9 +95,9 @@ The application uses Redux Toolkit for state management:
     "timestamp": "2024-01-17T10:00:00"
   },
   {
-    "timestamp": "2024-01-17T10:01:00",
     "latitude": 37.7750,
-    "longitude": -122.4195
+    "longitude": -122.4195,
+    "timestamp": "2024-01-17T10:01:00"
   }
 ]
 ```
