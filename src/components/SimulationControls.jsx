@@ -194,17 +194,30 @@ const SimulationControls = () => {
 
                 {/* Simulation Progress Bar */}
                 <div className="mt-6">
-                    <label className="block text-sm font-medium text-gray-600 mb-2">Simulation Progress</label>
-                    <input
-                        type="range"
-                        min="0"
-                        max={dronePath.length - 1}
-                        value={currentIndex}
-                        onChange={handleSeekChange}
-                        className="w-full h-2 bg-gray-400 rounded-full"
-                    />
-                    <p className="mt-2 text-sm text-center">Position: {currentIndex} / {dronePath.length - 1}</p>
+                    <label className="block text-sm font-medium text-gray-600 mb-2">
+                        Simulation Progress
+                    </label>
+                    {dronePath.length > 1 ? (
+                        <>
+                            <input
+                                type="range"
+                                min="0"
+                                max={dronePath.length - 1}
+                                value={currentIndex}
+                                onChange={handleSeekChange}
+                                className="w-full h-2 bg-gray-400 rounded-full"
+                            />
+                            <p className="mt-2 text-sm text-center">
+                                Position: {currentIndex} / {dronePath.length - 1}
+                            </p>
+                        </>
+                    ) : (
+                        <p className="mt-2 text-sm text-center text-gray-500">
+                            No path data available.
+                        </p>
+                    )}
                 </div>
+
             </div>
         </div>
     );

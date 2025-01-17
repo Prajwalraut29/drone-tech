@@ -9,7 +9,7 @@ const MapView = () => {
     const [currentPosition, setCurrentPosition] = useState([18.5204, 73.8567]); // Default to Pune
     const [pathProgress, setPathProgress] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [zoomLevel, setZoomLevel] = useState(20);
+    const [zoomLevel, setZoomLevel] = useState(12);
     const mapRef = useRef();
     const animationRef = useRef(null);
 
@@ -19,7 +19,6 @@ const MapView = () => {
             : dronePath.map((point) => [point.latitude, point.longitude]);
 
         setPathProgress(pathCoordinates);
-
 
         const map = mapRef.current?.leafletElement;
         if (map && pathCoordinates.length > 0) {
@@ -40,7 +39,6 @@ const MapView = () => {
                 if (currentIndex < pathCoordinates.length - 1) {
                     const [startLat, startLng] = pathCoordinates[currentIndex];
                     const [endLat, endLng] = pathCoordinates[currentIndex + 1];
-
 
                     const steps = 50;
                     const latStep = (endLat - startLat) / steps;
@@ -75,9 +73,12 @@ const MapView = () => {
                 zoom={zoomLevel}
                 style={{ height: '100%', width: '100%' }}
                 className="h-full w-full"
-                ref={mapRef}
+                whenCreated={(mapInstance) => (mapRef.current = mapInstance)}
             >
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                <TileLayer
+                    url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                />
                 {pathProgress.length > 0 && (
                     <>
                         <Polyline positions={pathProgress} color="blue" weight={4} />
