@@ -89,15 +89,29 @@ The application uses Redux Toolkit for state management:
 ```json
 [
   {
-    
-    "latitude": 37.7749,
-    "longitude": -122.4194,
-    "timestamp": "2024-01-17T10:00:00"
+    "latitude": 21.1458,
+    "longitude": 79.0882,
+    "timestamp": 1672531200
   },
   {
-    "latitude": 37.7750,
-    "longitude": -122.4195,
-    "timestamp": "2024-01-17T10:01:00"
+    "latitude": 18.5204,
+    "longitude": 73.8567,
+    "timestamp": 1672534800
+  },
+  {
+    "latitude": 17.3850,
+    "longitude": 78.4867,
+    "timestamp": 1672538400
+  },
+  {
+    "latitude": 19.0760,
+    "longitude": 72.8777,
+    "timestamp": 1672542000
+  },
+  {
+    "latitude": 12.9716,
+    "longitude": 77.5946,
+    "timestamp": 1672545600
   }
 ]
 ```
