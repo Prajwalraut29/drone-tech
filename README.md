@@ -55,6 +55,24 @@ npm run dev
 }
 ```
 
+## Instructions
+
+### 1. Add Coordinates and Timestamp
+Enter the **latitude**, **longitude**, and **timestamp** values in the provided fields. These details will be used to simulate the drone's movement.
+
+### 2. Start the Simulation
+Click on the **"Start Simulation"** button to begin the drone's journey.
+
+### 3. Add More Coordinates
+Use the **"Add"** button to input additional latitude and longitude values. As you do this, the drone will move from one location to another based on the new coordinates.
+
+### 4. Track the Progress
+A **progress bar** will display the drone's current position and the location it is heading towards.
+
+### 5. Pause or Resume the Simulation
+You can **pause** the simulation at any time and **resume** it whenever needed, providing full control over the process.
+
+
 ## Usage
 
 1. **Map Configuration**
