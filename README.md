@@ -1,4 +1,4 @@
-# Drone Path Simulation Web Application - Frontend FlytBase Assignment
+# Drone Path Simulation Web Application - Frontend 
 
 A React-based web application that simulates drone paths on an interactive map using time series data.
 
